@@ -1,6 +1,9 @@
 import torch
 import torch.nn.functional as F
-from utils.utils import bilinear_sampler, coords_grid
+import sys
+sys.path.append('PIV-UNN/raft')
+sys.path.append('PIV-UNN/raft/utils')
+from utils import bilinear_sampler, coords_grid
 
 try:
     import raft.alt_cuda_corr

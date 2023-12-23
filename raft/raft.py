@@ -7,11 +7,12 @@ import torch.nn.functional as F
 # from raft.extractor import BasicEncoder, SmallEncoder
 # from raft.corr import CorrBlock, AlternateCorrBlock
 # from raft.utils.utils import bilinear_sampler, coords_grid, upflow8
-
+import sys
+sys.path.append('PIV-UNN/raft/utils/')
 from update import BasicUpdateBlock, SmallUpdateBlock
 from extractor import BasicEncoder, SmallEncoder
 from corr import CorrBlock, AlternateCorrBlock
-from utils.utils import bilinear_sampler, coords_grid, upflow8
+from utils import coords_grid, upflow8
 
 try:
     autocast = torch.cuda.amp.autocast
