@@ -47,12 +47,13 @@ class FlowDataset(torch.utils.data.Dataset):
             self.data[1][sample_ind])) * 1.0 / 255.0
 
         if not self.train:
-            print(' ')
-            print('img1: ', self.data[0][sample_ind], sample_ind)
-            print('img2: ', self.data[1][sample_ind])
-            if self.targets is not None:
-                print('label: ', self.targets[sample_ind])
-            print(' ')
+            # print(' ')
+            # print('img1: ', self.data[0][sample_ind], sample_ind)
+            # print('img2: ', self.data[1][sample_ind])
+            # if self.targets is not None:
+            #     print('label: ', self.targets[sample_ind])
+            # print(' ')
+            pass
 
         sample = torch.FloatTensor([sample_1, sample_2])
         # read_flow convert the RGB value in .flo to velocity components u and v

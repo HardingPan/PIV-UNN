@@ -2,7 +2,9 @@
     This file is apdated from https://github.com/sniklaus/pytorch-liteflownet
 """
 import torch
-import src.model.correlation as correlation
+import sys
+sys.path.append('PIV-UNN/unflownet/src/')
+import model.correlation as correlation
 import math
 Backward_tensorGrid = {}
 

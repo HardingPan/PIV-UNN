@@ -1,6 +1,8 @@
 import torch
 import torch.nn.functional as F
-from src.model.models import Backward, device
+import sys
+sys.path.append('PIV-UNN/unflownet/src/')
+from model.models import Backward, device
 
 
 def multiscaleUnsupervisorError(tensorFlowForward,

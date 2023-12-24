@@ -1,14 +1,16 @@
 import random
 import numpy as np
 import json
-from src.model.loss_functions import *
-from src.model.utils import realEPE
+import sys
+sys.path.append('PIV-UNN/unflownet/src/')
+from model.loss_functions import *
+from model.utils import realEPE
 from torch.utils.data import DataLoader
 from livelossplot import PlotLosses
 import GPUtil
 import time
 import datetime
-from src.model.models import estimate, device
+from model.models import estimate, device
 
 
 def set_seed(seed):
@@ -113,17 +115,17 @@ def train_model(model,
                               batch_size=batch_size,
                               shuffle=True,
                               num_workers=4,
-                              pin_memory=True)
+                              pin_memory=False)
     validation_loader = DataLoader(validate_dataset,
                                    batch_size=test_batch_size,
                                    shuffle=False,
                                    num_workers=4,
-                                   pin_memory=True)
+                                   pin_memory=False)
     test_loader = DataLoader(test_dataset,
                              batch_size=test_batch_size,
                              shuffle=False,
                              num_workers=4,
-                             pin_memory=True)
+                             pin_memory=False)
 
     liveloss = PlotLosses()
     para_dict = {}
@@ -203,7 +205,7 @@ def save_model(model, optimizer, train_loss, para_dict, save_name):
     ts = time.time()
     st = datetime.datetime.fromtimestamp(ts).strftime('%Y_%m_%d_%H_%M_%S')
     model_save_name = save_name + st + '.pt'
-    PATH = F"./{model_save_name}"
+    PATH = F"PIV-UNN/unflownet/models/{model_save_name}"
     epoch = para_dict['epoch']
     torch.save(
         {

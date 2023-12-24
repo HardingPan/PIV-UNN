@@ -1,7 +1,9 @@
 import glob
 import json
 from sklearn.model_selection import ShuffleSplit
-from src.data_processing.custom_dataset import *
+import sys
+sys.path.append('PIV-UNN/unflownet/src/')
+from data_processing.custom_dataset import *
 
 import os
 
