@@ -1,7 +1,7 @@
 import sys
 sys.path.append('core')
-sys.path.append('PIV-UNN/raft/utils/')
-sys.path.append('PIV-UNN/raft/')
+sys.path.append('./PIV-UNN/raft/utils/')
+sys.path.append('./PIV-UNN/raft/')
 import argparse
 import os
 import cv2
@@ -66,7 +66,9 @@ class RaftMM():
             self.truths = sorted(self.truths)
             
             print(f"detas init ok: all {len(self.truths)}")
-    
+            return len(self.truths)
+    def get_data_list(self):
+        return self.images1, self.images2, self.truths
     def load_image(self, imfile):
         img = np.array(Image.open(imfile)).astype(np.uint8)
         img_rgb = np.zeros((256, 256, 3), dtype=np.uint8)

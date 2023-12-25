@@ -1,7 +1,7 @@
 import argparse
 import matplotlib.pyplot as plt
 import sys
-sys.path.append('PIV-UNN/unflownet/src/')
+sys.path.append('./PIV-UNN/unflownet/src/')
 from model.models import *
 from data_processing.read_data import *
 from train.train_functions import *
